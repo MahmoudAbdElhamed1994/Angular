@@ -11,7 +11,7 @@ export class ProductsComponent implements OnInit {
   discount:DiscountOffers=DiscountOffers.NoDiscount;
   storeName:string="Awfar";
   storeLogo:string="../../assets/progressive-rock-85111089.jpg";
-  productList:Array<Iproducts>=[{ID:0,Name:"laptop Lenovo",Quantity:3,Price:2000,Img:''},{ID:1,Name:"laptop Dell",Quantity:13,Price:21000,Img:''},{ID:1,Name:"laptop Acer",Quantity:2,Price:12000,Img:''},{ID:3,Name:"Iphone",Quantity:3,Price:20000,Img:''}];
+  productList:Array<Iproducts>=[{ID:0,Name:"laptop Lenovo",Quantity:3,Price:2000,Img:'../../assets/Products/lenovo.jpg'},{ID:1,Name:"laptop Dell",Quantity:13,Price:21000,Img:'../../assets/Products/Dell.jpg'},{ID:1,Name:"laptop Acer",Quantity:2,Price:12000,Img:'../../assets/Products/Acer.jpg'},{ID:3,Name:"Iphone",Quantity:3,Price:20000,Img:'../../assets/Products/Iphone.jpg'}];
   catogryList:ICatogry[]=[{ID:0,name:"electronics"},{ID:1,name:"Laptops"},{ID:2,name:"Mobiles"},{ID:3,name:"TVS"}];
   clientName:string="";
   Ispurchased:boolean=false;
