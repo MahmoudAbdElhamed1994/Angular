@@ -1,0 +1,72 @@
+<h1>{{storeName}}</h1>
+<img [src]="storeLogo">
+<div *ngIf="discount == 'NoDiscount'; else elseblock"></div>
+<ng-template #elseblock>
+<h3 > We offer an explicit discount of :{{discount}}</h3> 
+</ng-template >  
+<select name="Catogries">
+    <option *ngFor='let Catogey of catogryList'>{{Catogey.name}}</option>
+</select>
+
+<table *ngIf="!Ispurchased" border="2px" width='100%' style="text-align: center;">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Img</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of  productList" style="height: 50px;">
+            <td>{{product.Name |uppercase}}</td>
+            <td>{{product.Quantity}}</td>
+            <td>{{product.Price |currency:'EUR'}}</td>
+            <td>{{product.Img}}</td>
+        </tr>    
+    </tbody>
+</table>
+    <div *ngIf="Ispurchased">
+        Thanks for purchasing from our store {{clientName}}
+    </div>
+    <!-- <div *ngIf="Ispurchased;else elseblocks ;then thenblocks"></div>
+<ng-template #elseblocks>
+    <table  border="2px" width='100%' style="text-align: center;">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Img</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of  productList" style="height: 50px;">
+                <td>{{product.Name}}</td>
+                <td>{{product.Quantity}}</td>
+                <td>{{product.Price}}</td>
+                <td>{{product.Img}}</td>
+            </tr>    
+        </tbody>
+    </table>
+</ng-template>
+<ng-template #thenblocks>
+        <div>
+            Thanks for purchasing from our store {{clientName}}
+        </div>
+    </ng-template> -->
+<br>
+<button (click)="buy()">Buy</button>
+<br>
+<input type="text" #textname>
+<button (click)="assignName(textname.value)">Enter Name</button>
+<button (click)="showName()">Show Name</button>
+<br>
+<br>
+<input type="text" [(ngModel)]="clientName">
+{{clientName}}
+<br>
+<br>
+
+
+{{10|filter:20:30:10:10:20:10}}
