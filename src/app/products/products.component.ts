@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ProductServiceService } from '../services/product-service.service';
 import { DiscountOffers, Iproducts, ICatogry } from '../shared Classes and types/Shared';
 
@@ -16,7 +16,6 @@ export class ProductsComponent implements OnInit {
   catogryList:ICatogry[];
   clientName:string;
   Ispurchased:boolean;
-  @Input()Isclick:boolean=true;
   constructor(private products:ProductServiceService) {
     this.discount=DiscountOffers.NoDiscount;
     this.storeName="Awfar";
