@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProductServiceService } from '../services/product-service.service';
 import { DiscountOffers, Iproducts, ICatogry } from '../shared Classes and types/Shared';
 
 @Component({
@@ -8,18 +9,31 @@ import { DiscountOffers, Iproducts, ICatogry } from '../shared Classes and types
 })
 
 export class ProductsComponent implements OnInit {
-  discount:DiscountOffers=DiscountOffers.NoDiscount;
-  storeName:string="Awfar";
-  storeLogo:string="../../assets/progressive-rock-85111089.jpg";
-  productList:Array<Iproducts>=[{ID:0,Name:"laptop Lenovo",Quantity:3,Price:2000,Img:'../../assets/Products/lenovo.jpg'},{ID:1,Name:"laptop Dell",Quantity:13,Price:21000,Img:'../../assets/Products/Dell.jpg'},{ID:1,Name:"laptop Acer",Quantity:2,Price:12000,Img:'../../assets/Products/Acer.jpg'},{ID:3,Name:"Iphone",Quantity:3,Price:20000,Img:'../../assets/Products/Iphone.jpg'}];
-  catogryList:ICatogry[]=[{ID:0,name:"electronics"},{ID:1,name:"Laptops"},{ID:2,name:"Mobiles"},{ID:3,name:"TVS"}];
-  clientName:string="";
-  Ispurchased:boolean=false;
-  constructor() {
+  discount:DiscountOffers;
+  storeName:string;
+  storeLogo:string;
+  productList:Array<Iproducts>=[];
+  catogryList:ICatogry[];
+  clientName:string;
+  Ispurchased:boolean;
+  @Input()Isclick:boolean=true;
+  constructor(private products:ProductServiceService) {
+    this.discount=DiscountOffers.NoDiscount;
+    this.storeName="Awfar";
+    this.storeLogo="../../assets/progressive-rock-85111089.jpg";
+    this.productList=[];
+    this.catogryList=[{ID:0,name:"electronics"},{ID:1,name:"Laptops"},{ID:2,name:"Mobiles"},{ID:3,name:"TVS"}];
+    this.clientName="";
+    this.Ispurchased=false;
 
    }
 
   ngOnInit(): void {
+    // this.productList=this.products.getAllProducts();
+    // this.productList=this.products.grtProductsById(1)??this.productList;
+  }
+  renderValues(){
+    this.productList=this.products.getAllProducts();
   }
   assignName(text:string):void{
     this.clientName=text;

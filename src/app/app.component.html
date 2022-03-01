@@ -1,5 +1,6 @@
 <app-header></app-header>
 <h1>My First Project</h1>
-<app-products></app-products>
+<button (click)="viewItems()" style="width: 300px;height: 50px;background-color: red;">Click Me</button>
+<app-products [Isclick]="isClicked"></app-products>
 <app-footer></app-footer>
 <router-outlet></router-outlet>

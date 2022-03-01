@@ -13,7 +13,8 @@
 </select>
 <br>
 <br>
-
+<div *ngIf="Isclick;then thenblock"></div>
+<ng-template #thenblock>
 <table *ngIf="!Ispurchased" border="2px" width='100%' style="text-align: center;">
     <thead>
     <tr>
@@ -34,6 +35,7 @@
         </tr>    
     </tbody>
 </table>
+</ng-template>
     <div *ngIf="Ispurchased">
         Thanks for purchasing from our store {{clientName}}
     </div>
