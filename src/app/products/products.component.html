@@ -61,6 +61,7 @@
 <div class="container" *ngFor="let product of productList">
     <img class='img'[src]="product.Img">
     <div class="productName">{{product.Name }}</div>
+    <div class="Quantity">{{product.Quantity}}</div>
     <div class="productPrice">{{product.Price|currency :'EUR'}}</div>
     <button class="Cart" >Add To Cart</button>
 </div>

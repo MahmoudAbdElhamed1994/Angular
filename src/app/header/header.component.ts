@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  Source:string="url(../../assets/header.jpg)";
+  Source:string="../../assets/headr.jpg";
   constructor() {
     
    }

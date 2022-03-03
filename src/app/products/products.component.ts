@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ProductServiceService } from '../services/product-service.service';
 import { DiscountOffers, Iproducts, ICatogry } from '../shared Classes and types/Shared';
 
@@ -16,6 +16,7 @@ export class ProductsComponent implements OnInit {
   catogryList:ICatogry[];
   clientName:string;
   Ispurchased:boolean;
+  
   constructor(private products:ProductServiceService) {
     this.discount=DiscountOffers.NoDiscount;
     this.storeName="Awfar";
@@ -28,11 +29,14 @@ export class ProductsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this.productList=this.products.getAllProducts();
-    // this.productList=this.products.grtProductsById(1)??this.productList;
+    this.renderValues();
   }
   renderValues(){
-    this.productList=this.products.getAllProducts();
+    this.products.getAllProducts().subscribe(
+      data=>{
+        this.productList=data;
+      }
+    )
   }
   assignName(text:string):void{
     this.clientName=text;

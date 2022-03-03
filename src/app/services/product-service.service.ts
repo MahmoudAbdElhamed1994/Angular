@@ -1,26 +1,36 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
+import { catchError, Observable, throwError } from 'rxjs';
+import { Iproducts } from '../shared Classes and types/Shared';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
-productList=[{ID:0,Name:"laptop Lenovo",Quantity:3,Price:2000,Img:'../../assets/Products/lenovo.jpg'},
-{ID:1,Name:"laptop Dell",Quantity:13,Price:21000,Img:'../../assets/Products/Dell.jpg'},
-{ID:2,Name:"laptop Acer",Quantity:2,Price:12000,Img:'../../assets/Products/Acer.jpg'},
-{ID:3,Name:"Iphone",Quantity:3,Price:20000,Img:'../../assets/Products/Iphone.jpg'}];
-  constructor() { 
 
+  constructor(private http:HttpClient) { 
+    
   }
-  getAllProducts(){
-    return this.productList;
+  getAllProducts():Observable<Iproducts[]>{
+    return this.http.get<Iproducts[]>("../assets/data.json").pipe(
+      catchError((err)=>{
+        return throwError(err.message||"sever error")
+      }
+      ))
   }
   grtProductsById(ID:any){
+    var productList:Iproducts[]=[];
+    this.getAllProducts().subscribe(
+      data=>{
+        productList=data;
+      }
+    )
     if(typeof(ID)!='number')
     return null;
     else{
     var x=[];
-    x= this.productList.filter((ele)=>ele.ID==ID );
+    x=productList.filter((ele)=>ele.ID==ID );
     if(x.length!=0)
     return x;
     else 
