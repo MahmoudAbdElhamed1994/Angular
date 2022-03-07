@@ -3,6 +3,7 @@ export interface Iproducts{
     Name:string;
     Quantity:number;
     Price:number;
+    Discount:string;
     Img:string;
 }
 export interface ICatogry{

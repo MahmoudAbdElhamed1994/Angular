@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductServiceService } from '../services/product-service.service';
 import { DiscountOffers, Iproducts, ICatogry } from '../shared Classes and types/Shared';
 
@@ -17,7 +18,7 @@ export class ProductsComponent implements OnInit {
   clientName:string;
   Ispurchased:boolean;
   
-  constructor(private products:ProductServiceService) {
+  constructor(private products:ProductServiceService,private router:Router,private route:ActivatedRoute) {
     this.discount=DiscountOffers.NoDiscount;
     this.storeName="Awfar";
     this.storeLogo="../../assets/progressive-rock-85111089.jpg";
@@ -47,5 +48,10 @@ export class ProductsComponent implements OnInit {
   buy():void{
     this.Ispurchased=true;
   }
-
+  discountPage():void{
+    this.router.navigate(["Discountproducts"],{relativeTo:this.route});
+  }
+  NodiscountPage():void{
+    this.router.navigate(["NoDiscountproducts"],{relativeTo:this.route});
+  }
 }

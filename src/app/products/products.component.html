@@ -1,5 +1,5 @@
 
-<h1>{{storeName}}</h1>
+<!-- <h1>{{storeName}}</h1>
 <img [src]="storeLogo" style="width: 20%;height:100px;border-radius: 50%;">
 
 <div *ngIf="discount == 'NoDiscount'; else elseblock"></div>
@@ -43,7 +43,7 @@
             Thanks for purchasing from our store {{clientName}}
         </div>
     </ng-template> -->
-<br>
+<!-- <br>
 <button (click)="buy()">Buy</button>
 <br>
 <br>
@@ -56,13 +56,10 @@
 {{clientName}}
 <br>
 <br>
-{{10|filter:20:30:10:10:20:10}}
-<div class="biggerContainer">
-<div class="container" *ngFor="let product of productList">
-    <img class='img'[src]="product.Img">
-    <div class="productName">{{product.Name }}</div>
-    <div class="Quantity">{{product.Quantity}}</div>
-    <div class="productPrice">{{product.Price|currency :'EUR'}}</div>
-    <button class="Cart" >Add To Cart</button>
+{{10|filter:20:30:10:10:20:10}} -->
+<div class="container-fluid">
+    <button (click)="discountPage()" type="button" class="btn btn-primary">Discount</button>
+    <button (click)="NodiscountPage()" type="button" class="btn btn-warning">No Discount</button>
 </div>
-</div>
+<router-outlet></router-outlet>
+

@@ -1,0 +1,21 @@
+label{
+    color: rgb(10, 70, 148);
+    font-weight: bolder;
+}
+.form-group{
+    width: 40%;
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 10vh;
+
+
+}
+form{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 60vh;
+}

@@ -1,9 +1,17 @@
 
-<div class="biggerContainer">
-<div class="container" *ngFor="let user of users">
-    <div class="productName">{{user.name }}</div>
-    <div class="Quantity">{{user.username}}</div>
-    <div class="productPrice">{{user.email}}</div>
+<div class="card text-center">
+<div class="card mb-3"  *ngFor="let user of users">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="../../assets/user.jpg" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{user.name}}</h5>
+          <p class="card-text">{{user.email}}</p>
+          <p class="card-text">{{user.username}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-

@@ -23,7 +23,7 @@ export class PostsComponent implements OnInit {
     )
   }
   showComments(id:number){
-    this.router.navigate(['/comments',id]);
+    this.router.navigate(['comments',id]);
   }
 
 }

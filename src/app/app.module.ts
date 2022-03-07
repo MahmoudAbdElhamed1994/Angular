@@ -14,6 +14,10 @@ import { PostsComponent } from './posts/posts.component';
 import { PageNotFountComponent } from './page-not-fount/page-not-fount.component';
 import { HomeComponent } from './home/home.component';
 import { CommentsComponent } from './comments/comments.component';
+import { DiscountProdComponent } from './discount-prod/discount-prod.component';
+import { NoDiscountProdComponent } from './no-discount-prod/no-discount-prod.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { CommentsComponent } from './comments/comments.component';
     PostsComponent,
     PageNotFountComponent,
     HomeComponent,
-    CommentsComponent
+    CommentsComponent,
+    DiscountProdComponent,
+    NoDiscountProdComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
